@@ -14,36 +14,37 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
-        DB::Table('roles')->insert([
-            'name'=>'super-admin',
-            'slug'=>'vip',
-            'description'=>'highest role',
-            'code'=>'99',
-            'created_at' => now()
-            ]);
+        $data = [
+            [
+                'name'=>'super-admin',
+                'slug'=>'vip',
+                'description'=>'highest role',
+                'code'=>'99',
+                'created_at' => now()
+            ],
+            [
+                'name'=>'admin',
+                'slug'=>'admin',
+                'description'=>'admin role',
+                'code'=>'88',
+                'created_at' => now()
+            ],
+            [
+                'name'=>'distributor',
+                'slug'=>'dist',
+                'description'=>'distributor role',
+                'code'=>'77',
+                'created_at' => now()
+            ],
+            [
+                'name'=>'hotel',
+                'slug'=>'hotel',
+                'description'=>'hotel role',
+                'code'=>'66',
+                'created_at' => now()
+            ]
+        ];
 
-        DB::Table('roles')->insert([
-            'name'=>'admin',
-            'slug'=>'admin',
-            'description'=>'admin role',
-            'code'=>'88',
-            'created_at' => now()
-        ]);
-
-        DB::Table('roles')->insert([
-            'name'=>'distributor',
-            'slug'=>'dist',
-            'description'=>'distributor role',
-            'code'=>'77',
-            'created_at' => now()
-        ]);
-
-        DB::Table('roles')->insert([
-            'name'=>'hotel',
-            'slug'=>'hotel',
-            'description'=>'hotel role',
-            'code'=>'66',
-            'created_at' => now()
-        ]);
+        DB::table('roles')->insert($data);
     }
 }
