@@ -23,7 +23,7 @@ class EnsureUserHasRole
             $user_role = $user->role->slug;
 
             foreach ($roles as $role) {
-                if($user_role == $role) return $next();
+                if($user_role == $role) return $next($request);
             }
 
             return redirect()->route('root');
