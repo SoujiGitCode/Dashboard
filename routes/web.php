@@ -27,4 +27,8 @@ Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class
 //Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
 
-Route::get('/roles', 'RolesController@index')->middleware('role:hotel');
+Route::prefix('roles')->middleware('role:vip,admin')->group(function() {
+    Route::get('/list', 'RolesController@index');
+    Route::post('/create', 'RolesController@store');
+    Route::delete('/{id}', 'RolesController@delete');
+});

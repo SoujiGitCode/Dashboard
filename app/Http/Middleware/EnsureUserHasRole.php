@@ -23,7 +23,6 @@ class EnsureUserHasRole
             $user_role = $user->role->slug;
 
             foreach ($roles as $role) {
-                // dd($role, $user_role);
                 if($user_role == $role) return $next($request);
             }
 
