@@ -19,7 +19,6 @@ class EnsureUserHasRole
     public function handle(Request $request, Closure $next, ...$roles)
     {
         try {
-            dd($request);
             $user = Auth::user();
             $user_role = $user->role->slug;
 
