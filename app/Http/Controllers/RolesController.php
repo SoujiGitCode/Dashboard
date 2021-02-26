@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Roles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 
 class RolesController extends Controller
 {
@@ -14,7 +16,9 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Roles::all();
+
+        return view('roles/index', compact('roles'));
     }
 
     /**
