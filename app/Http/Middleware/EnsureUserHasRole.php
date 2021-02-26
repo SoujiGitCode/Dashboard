@@ -13,17 +13,18 @@ class EnsureUserHasRole
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  number  $role
+     * @param  array  $role
      * @return mixed
      */
     public function handle(Request $request, Closure $next, ...$roles)
     {
         try {
+            dd($request);
             $user = Auth::user();
             $user_role = $user->role->slug;
 
             foreach ($roles as $role) {
-                if($user_role == $role) return $next($request);
+                if($user_role == $role) return $next();
             }
 
             return redirect()->route('root');
