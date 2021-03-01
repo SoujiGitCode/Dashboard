@@ -19,7 +19,7 @@
                                 <div class="row">
                                     <div class="col-7">
                                         <div class="text-primary p-4">
-                                            <h5 class="text-primary">Welcome Back !</h5>
+                                            <h5 class="text-primary">Welcome back !</h5>
                                             <p>Sign in to continue to Skote.</p>
                                         </div>
                                     </div>
@@ -46,6 +46,8 @@
                                                 <img src="{{ URL::asset('/assets/images/logo.svg') }}" alt=""
                                                     class="rounded-circle" height="34">
                                             </span>
+                                            <div>
+                                            highlight_file</div>
                                         </div>
                                     </a>
                                 </div>
@@ -56,7 +58,7 @@
                                             <label for="username" class="form-label">Email</label>
                                             <input name="email" type="email"
                                                 class="form-control @error('email') is-invalid @enderror"
-                                                value="{{ old('email', 'admin@themesbrand.com') }}" id="username"
+                                                value="{{ old('email', 'vip@gmail.com') }}" id="username"
                                                 placeholder="Enter Email" autocomplete="email" autofocus>
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
