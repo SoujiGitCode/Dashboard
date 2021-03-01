@@ -176,6 +176,8 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="projects-grid" key="t-p-grid">@lang('translation.Projects_Grid')</a></li>
                         <li><a href="projects-list" key="t-p-list">@lang('translation.Projects_List')</a></li>
+                        <li><a href="roles-list" key="t-p-roles">@lang('translation.Roles_list')</a></li>
+                        <li><a href="users-list" key="t-p-users">@lang('translation.Users_list')</a></li>
                         <li><a href="projects-overview" key="t-p-overview">@lang('translation.Project_Overview')</a>
                         </li>
                         <li><a href="projects-create" key="t-create-new">@lang('translation.Create_New')</a></li>

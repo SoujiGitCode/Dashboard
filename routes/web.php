@@ -22,15 +22,29 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('roo
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
 
-// Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+/*
+|--------------------------------------------------------------------------
+| Roles Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/roles-list', 'RoleController@index');
+Route::post('/roles-store', 'RoleController@store');
+Route::delete('/roles-delete', 'RoleController@delete');
+
+/*
+|--------------------------------------------------------------------------
+| Users Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/users-list', 'UserController@index')->middleware('role:vip');
+Route::get('/user-create', 'UserController@create')->middleware('role:vip');
+Route::post('/user-store', 'UserController@store')->middleware('role:vip');
+Route::delete('/user-delete', 'UserController@delete')->middleware('role:vip');
+
+
+Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 //Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
 
-// Route::get('/roles', 'RolesController@index')->middleware('role:hotel,vip');
 
-Route::prefix('roles')->middleware('role:vip,admin')->group(function() {
-    Route::get('/list', 'RolesController@index');
-    Route::post('/create', 'RolesController@store');
-    Route::delete('/{id}', 'RolesController@delete');
-});

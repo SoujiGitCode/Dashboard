@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 
-class RolesController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class RolesController extends Controller
     {
         $roles = Role::all();
 
-        return view('roles/index', compact('roles'));
+        return view('roles.roles-list', compact('roles'));
     }
 
     /**

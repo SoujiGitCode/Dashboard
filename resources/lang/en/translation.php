@@ -171,7 +171,9 @@ return [
   "Settings" => "Settings",
   "Lock_screen" => "Lock screen",
   "Logout" => "Logout",
-  "Edit_Details" => "Edit Details"
+  "Edit_Details" => "Edit Details",
+  "Roles_list" => "Roles List",
+  "Users_list" => "Users List"
 ];
 
 ?>
