@@ -46,4 +46,3 @@ Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
-
