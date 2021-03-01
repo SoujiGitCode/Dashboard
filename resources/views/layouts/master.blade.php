@@ -17,8 +17,8 @@
 @show
     <!-- Begin page -->
     <div id="layout-wrapper">
-        @include('components.topbar')
-        @include('components.sidebar')
+        @include('layouts.topbar')
+        @include('layouts.sidebar')
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -30,7 +30,7 @@
                 <!-- container-fluid -->
             </div>
             <!-- End Page-content -->
-            @include('components.footer')
+            @include('layouts.footer')
         </div>
         <!-- end main content-->
     </div>

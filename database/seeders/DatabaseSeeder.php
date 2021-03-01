@@ -16,9 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RolesSeeder::class,
-            UserSeeder::class,
-            PlanCodeSeeder::class
+            UserSeeder::class
         ]);
     }
-    //git test
 }
