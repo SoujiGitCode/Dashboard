@@ -1,7 +1,7 @@
 <?php
 
 return [
-  
+
   "Menu" =>"Menú",
   "Dashboards" =>"Cuadros de mando",
   "Default" =>"Defecto",
@@ -172,6 +172,8 @@ return [
   "Settings" =>"Configuraciones",
   "Lock_screen" =>"Bloquear pantalla",
   "Logout" =>"Cerrar sesión",
-  "Edit_Details" => "Editar detalles"
+  "Edit_Details" => "Editar detalles",
+  "Roles_list" => "Lista de Roles",
+  "Users_list" => "Lista de Usuarios"
 ];
 ?>

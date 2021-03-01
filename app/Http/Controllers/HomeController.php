@@ -28,15 +28,16 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        if (view()->exists($request->path())) {
-            return view($request->path());
+        if (view()->exists('template.'.$request->path())) {
+            return view('template.'.$request->path());
         }
+
         return abort(404);
     }
 
     public function root()
     {
-        return view('index');
+        return view('template.index');
     }
 
     /*Language Translation*/
@@ -106,7 +107,7 @@ class HomeController extends Controller
             return response()->json([
                 'isSuccess' => false,
                 'Message' => "Your Current password does not matches with the password you provided. Please try again."
-            ], 200); // Status code 
+            ], 200); // Status code
         } else {
             $user = User::find($id);
             $user->password = Hash::make($request->get('password'));
