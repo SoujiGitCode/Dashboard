@@ -10,6 +10,11 @@
         @endslot
     @endcomponent
 
+    @php
+        $cuser = Auth::user()->role->slug;
+        $i = 1;
+    @endphp
+
     <div class="row">
         <div class="col-lg-12">
             <div class="">
@@ -28,7 +33,7 @@
                         <tbody>
                         @foreach($users as $user)
                             <tr>
-                                <td>{{$user->id}}</td>
+                                <td>{{$i++}}</td>
                                 <td>
                                     <h5 class="text-truncate font-size-14">{{$user->name}}</h5>
                                 </td>
@@ -44,9 +49,19 @@
                                             <i class="mdi mdi-dots-horizontal font-size-18"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="user-create">Create</a>
-                                            <a class="dropdown-item" href="user-edit">Edit</a>
-                                            <a class="dropdown-item" href="user-delete">Delete</a>
+                                            @if($cuser == 'vip')
+                                                <a class="dropdown-item" href="user-create">Create</a>
+                                                <a class="dropdown-item" href="user-edit-{{$user->id}}">Edit</a>
+                                                <form action="user-delete-{{$user->id}}" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="dropdown-item">
+                                                    Delete
+                                                    <!-- <a class="dropdown-item">Delete</a> -->
+                                                    </button>
+                                                </form>
+                                            @else
+                                                <a class="dropdown-item" href="#">Se requieren permisos</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </td>
