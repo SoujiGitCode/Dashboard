@@ -36,15 +36,15 @@ Route::delete('/roles-delete', 'RoleController@delete');
 | Users Routes
 |--------------------------------------------------------------------------
 */
-Route::get('/users-list', 'UserController@index')->middleware('role:vip');
+Route::get('/users-list', 'UserController@index')->middleware('role:vip,admin,dist');
 Route::get('/user-create', 'UserController@create')->middleware('role:vip');
 Route::post('/user-store', 'UserController@store')->middleware('role:vip');
-Route::delete('/user-delete', 'UserController@delete')->middleware('role:vip');
+Route::get('/user-edit-{id}', 'UserController@edit')->middleware('role:vip');
+Route::post('/user-update', 'UserController@update')->middleware('role:vip');
+Route::post('/user-delete-{id}', 'UserController@destroy')->middleware('role:vip');
 
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 //Language Translation
 Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang']);
-
-

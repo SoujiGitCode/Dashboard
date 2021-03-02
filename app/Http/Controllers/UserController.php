@@ -6,15 +6,13 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
+use DB;
 
 
-class UserController extends Controller
+class UserController extends WebController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $users = User::all();
@@ -22,49 +20,58 @@ class UserController extends Controller
         return view('users.users-list', compact('users'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $roles = Role::all();
+        $roles = Role::where('slug', '<>', 'vip')->get();
 
         return view('users.user-create', compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        dd($request);
+        try {
+            $validator = $this->valid('user', $request);
+
+            if ($validator->fails()) {
+                return redirect('user-create')
+                ->withErrors($validator)
+                ->withInput();
+            }
+
+            DB::beginTransaction();
+
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role_id' => $request->role_id
+            ]);
+
+            DB::commit();
+
+            $users = User::all();
+
+            return view('users.users-list', compact('users'));
+
+        } catch (\Throwable $th) {
+            dd($th);
+            DB::rollback();
+            // return $th;
+            // return redirect('/user-create')->withErrors($th->getMessage())->withInput();
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Roles  $roles
-     * @return \Illuminate\Http\Response
-     */
     public function show(Roles $roles)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Roles  $roles
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Roles $roles)
+    public function edit(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $roles = Role::where('slug', '<>', 'vip')->get();
+
+        return view('users.user-edit', compact('user', 'roles'));
     }
 
     /**
@@ -74,19 +81,55 @@ class UserController extends Controller
      * @param  \App\Models\Roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Roles $roles)
+    public function update(Request $request)
     {
-        //
+        try {
+            $validator = $this->valid('user_update', $request, $request->id);
+
+            if ($validator->fails()) {
+                return redirect('user-edit')
+                ->withErrors($validator)
+                ->withInput();
+            }
+
+            DB::beginTransaction();
+
+            $user = User::find($request->id);
+
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'role_id' => $request->role_id
+            ]);
+
+            DB::commit();
+
+            $users = User::all();
+
+            return view('users.users-list', compact('users'));
+
+        } catch (\Throwable $th) {
+            dd($th);
+            DB::rollback();
+            // return $th;
+            // return redirect('/user-create')->withErrors($th->getMessage())->withInput();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Roles  $roles
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Roles $roles)
+    public function destroy(Request $request, $id)
     {
-        //
+        try {
+            DB::beginTransaction();
+            $user = User::find($id);
+            $user->delete();
+            DB::commit();
+
+            $users = User::all();
+
+            return view('users.users-list', compact('users'));
+        } catch (\Throwable $th) {
+            DB::rollback();
+        }
+
     }
 }

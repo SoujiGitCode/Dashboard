@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Validator;
 use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class WebController extends Controller
 {
@@ -16,47 +18,11 @@ class WebController extends Controller
 
         $validator = Validator::make($request->all(), $rules);
 
-        $errors = $validator->fails() ? $validator->errors() : [];
-        $language = request()->header('lang');
+        // if ($validator->fails()) {
+        //     throw new Exception($validator, 422);
+        // }
 
-        if(count($errors)) {
-            $errors = $errors->messages();
-            $stringError = '';
-
-            foreach ($errors as $key => $error) {
-                foreach ($error as $err) {
-                    if($language == 'es') {
-                        $arrayValue = explode('_', $key);
-
-                        $oldString = $this->countLabels($arrayValue);
-                        $newString = __($key);
-
-                        $replaceString = str_replace($oldString, $newString, $err);
-                        $stringError = $replaceString . ' ' . $stringError;
-                        continue;
-                    }
-                    $stringError = $err . ' ' . $stringError;
-                }
-            }
-
-            throw new Exception($stringError, 422);
-        }
-        return false;
-    }
-
-    private function countLabels($arrLabels)
-    {
-        if(count($arrLabels) == 1) {
-            return "$arrLabels[0]";
-        }
-
-        if(count($arrLabels) == 2) {
-            return "$arrLabels[0] $arrLabels[1]";
-        }
-
-        if(count($arrLabels) == 3) {
-            return "$arrLabels[0] $arrLabels[1] $arrLabels[2]";
-        }
+        return $validator;
     }
 
     /**
