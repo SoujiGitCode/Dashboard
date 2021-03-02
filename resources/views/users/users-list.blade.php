@@ -49,7 +49,7 @@
                                             <i class="mdi mdi-dots-horizontal font-size-18"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            @if($cuser == 'vip')
+                                            @if($cuser == 'vip' && $user->role->slug != 'vip')
                                                 <a class="dropdown-item" href="user-create">Create</a>
                                                 <a class="dropdown-item" href="user-edit-{{$user->id}}">Edit</a>
                                                 <form action="user-delete-{{$user->id}}" method="POST">
@@ -60,7 +60,7 @@
                                                     </button>
                                                 </form>
                                             @else
-                                                <a class="dropdown-item" href="#">Se requieren permisos</a>
+                                                <a class="dropdown-item" href="#">No permitido</a>
                                             @endif
                                         </div>
                                     </div>
