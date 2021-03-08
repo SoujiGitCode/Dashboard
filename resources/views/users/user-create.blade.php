@@ -16,7 +16,18 @@
         @slot('li_1') Users @endslot
         @slot('title') Create New @endslot
     @endcomponent
+
+
     <div class="row">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">

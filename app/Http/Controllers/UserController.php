@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use DB;
 
-
 class UserController extends WebController
 {
 
@@ -31,12 +30,7 @@ class UserController extends WebController
     {
         try {
             $validator = $this->valid('user', $request);
-
-            if ($validator->fails()) {
-                return redirect('user-create')
-                ->withErrors($validator)
-                ->withInput();
-            }
+            if($validator->fails()) return $this->redirectFailure('user-create', $validator);
 
             DB::beginTransaction();
 
@@ -53,17 +47,10 @@ class UserController extends WebController
 
             return view('users.users-list', compact('users'));
 
-        } catch (\Throwable $th) {
-            dd($th);
+        } catch (\Throwable $e) {
             DB::rollback();
-            // return $th;
-            // return redirect('/user-create')->withErrors($th->getMessage())->withInput();
+            abort(500);
         }
-    }
-
-    public function show(Roles $roles)
-    {
-        //
     }
 
     public function edit(Request $request, $id)
@@ -74,23 +61,11 @@ class UserController extends WebController
         return view('users.user-edit', compact('user', 'roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Roles  $roles
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         try {
             $validator = $this->valid('user_update', $request, $request->id);
-
-            if ($validator->fails()) {
-                return redirect('user-edit')
-                ->withErrors($validator)
-                ->withInput();
-            }
+            if($validator->fails()) return $this->redirectFailure('user-edit', $validator);
 
             DB::beginTransaction();
 
@@ -109,10 +84,8 @@ class UserController extends WebController
             return view('users.users-list', compact('users'));
 
         } catch (\Throwable $th) {
-            dd($th);
             DB::rollback();
-            // return $th;
-            // return redirect('/user-create')->withErrors($th->getMessage())->withInput();
+            abort(500);
         }
     }
 
@@ -129,6 +102,7 @@ class UserController extends WebController
             return view('users.users-list', compact('users'));
         } catch (\Throwable $th) {
             DB::rollback();
+            abort(500);
         }
 
     }
