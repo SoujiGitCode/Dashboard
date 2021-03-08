@@ -18,8 +18,11 @@ class Provider extends Model
         'user_id',
         'hotels',
         'alias',
+        'status',
         'created_by',
     ];
+
+
     use HasFactory;
 
     public function user()

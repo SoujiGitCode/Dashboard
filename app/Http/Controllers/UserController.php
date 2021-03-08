@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Provider;
 use App\Models\User;
 use App\Models\Role;
 use Illuminate\Http\Request;
@@ -34,11 +35,12 @@ class UserController extends WebController
 
             if ($validator->fails()) {
                 return redirect('user-create')
-                ->withErrors($validator)
-                ->withInput();
+                    ->withErrors($validator)
+                    ->withInput();
             }
 
             DB::beginTransaction();
+
 
             User::create([
                 'name' => $request->name,
@@ -46,7 +48,6 @@ class UserController extends WebController
                 'password' => Hash::make($request->password),
                 'role_id' => $request->role_id
             ]);
-
             DB::commit();
 
             $users = User::all();
@@ -88,8 +89,8 @@ class UserController extends WebController
 
             if ($validator->fails()) {
                 return redirect('user-edit')
-                ->withErrors($validator)
-                ->withInput();
+                    ->withErrors($validator)
+                    ->withInput();
             }
 
             DB::beginTransaction();

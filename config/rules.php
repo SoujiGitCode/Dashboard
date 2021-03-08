@@ -12,5 +12,13 @@ return [
         'name' => 'required|string|max:255',
         'email' => 'required|string|email|max:255'
     ],
+    'status_update' => [
+        'status' => 'required|string|max:255',
+        'id' => 'required|string|max:255'
+    ],
+    'provider_update' => [
+        'status' => 'required|string|max:255',
+        'id' => 'required|string|max:255'
+    ],
 
 ];
