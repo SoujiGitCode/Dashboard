@@ -43,6 +43,16 @@ Route::get('/user-edit-{id}', 'UserController@edit')->middleware('role:vip');
 Route::post('/user-update', 'UserController@update')->middleware('role:vip');
 Route::post('/user-delete-{id}', 'UserController@destroy')->middleware('role:vip');
 
+/*
+|--------------------------------------------------------------------------
+| Providers Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/distributors-list', 'ProviderController@index')->middleware('role:vip,admin');
+Route::get('/managers-list', 'ProviderController@index')->middleware('role:vip,admin');
+Route::post('/distributors-status-update', 'ProviderController@update')->middleware('role:vip');
+Route::get('/provider-edit-{id}', 'ProviderController@edit')->middleware('role:vip');
+Route::post('/provider-update', 'ProviderController@updateprovider')->middleware('role:vip');
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 

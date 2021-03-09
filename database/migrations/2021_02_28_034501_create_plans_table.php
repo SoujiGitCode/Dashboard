@@ -15,10 +15,11 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('plan_code_id')->constrained('plan_codes')->onDelete('cascade');
             $table->foreignId('provider_id')->constrained('providers')->onDelete('cascade');
             $table->string('max_hotels');
             $table->string('max_users');
-            $table->text('despcription');
+            $table->text('description');
             $table->timestamps();
         });
 

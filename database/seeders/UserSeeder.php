@@ -49,6 +49,24 @@ class UserSeeder extends Seeder
                 'avatar' => '/assets/images/users/avatar-4.jpg',
                 'created_at' => now()
             ],
+
+            [
+                'name' => Str::random(10),
+                'role_id' => 3,
+                'email' => 'dist2@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
+
+            [
+                'name' => Str::random(10),
+                'role_id' => 3,
+                'email' => 'dist3@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
         ];
 
         DB::table('users')->insert($data);

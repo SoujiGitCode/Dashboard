@@ -20,6 +20,7 @@ class CreateProvidersTable extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('hotels');
             $table->string('alias');
+            $table->string('status');
             $table->string('created_by');
             $table->timestamps();
         });

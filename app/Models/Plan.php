@@ -14,14 +14,21 @@ class Plan extends Model
      */
     protected $fillable = [
         'prover_id',
+        'plan_code_id',
         'max_hotels',
         'max_user',
         'description',
     ];
     use HasFactory;
 
-    public function provider()
+    public function provider(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo('App\Models\Provider');
+    }
+
+    public function plancode()
+    {
+        return $this->hasOne('App\Models\PlanCode', 'id');
+
     }
 }

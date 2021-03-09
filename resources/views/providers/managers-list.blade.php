@@ -1,3 +1,4 @@
+<?php
 @extends('layouts.master')
 <style>
     .actions-sm {
@@ -29,14 +30,14 @@
                 <div class="table-responsive">
                     <table class="table project-list-table table-nowrap align-middle table-borderless">
                         <thead>
-                            <tr>
-                                <th scope="col" style="width: 100px">#</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">E-mail</th>
-                                <!-- <th scope="col">Profile</th> -->
-                                <th scope="col">Created_at</th>
-                                <th scope="col">Actions</th>
-                            </tr>
+                        <tr>
+                            <th scope="col" style="width: 100px">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">E-mail</th>
+                            <!-- <th scope="col">Profile</th> -->
+                            <th scope="col">Created_at</th>
+                            <th scope="col">Actions</th>
+                        </tr>
                         </thead>
                         <tbody>
                         @foreach($users as $user)
@@ -46,7 +47,7 @@
                                     <h5 class="text-truncate font-size-14">{{$user->name}}</h5>
                                 </td>
                                 <td>{{$user->email}}</td>
-                                <!-- <td>
+                            <!-- <td>
                                     <img src="{{ URL::asset($user->avatar) }}" alt=""class="avatar-sm"></span>
                                 </td> -->
                                 <td>{{$user->created_at}}</td>
@@ -63,7 +64,7 @@
                                             <button type="submit" class="btn btn-danger waves-effect waves-light actions-sm">
                                                 <i class="mdi mdi-trash-can d-block font-size-16"></i>
                                             </button>
-                                 <!--   <div class="dropdown">
+                                        <!--   <div class="dropdown">
                                         <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown"
                                             aria-expanded="false">
                                             <i class="mdi mdi-dots-horizontal font-size-18"></i>
@@ -74,24 +75,24 @@
                                                 <a class="dropdown-item" href="user-edit-{{$user->id}}">Edit</a>
                                                 <form action="user-delete-{{$user->id}}" method="POST">
                                                     @csrf
-                                                    <button type="submit" class="dropdown-item">
-                                                    Delete -->
-                                                    <!-- <a class="dropdown-item">Delete</a> -->
-                                                <!--    </button> -->
-                                                </form>
-                                            @else
+                                            <button type="submit" class="dropdown-item">
+                                            Delete -->
+                                            <!-- <a class="dropdown-item">Delete</a> -->
+                                            <!--    </button> -->
+                                        </form>
+                    @else
 
-                                            @endif
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                    @endif
                 </div>
             </div>
+            </td>
+            </tr>
+            @endforeach
+            </tbody>
+            </table>
         </div>
+    </div>
+    </div>
     </div>
     <!-- end row -->
 

@@ -14,8 +14,8 @@ class PlanCode extends Model
 
     use HasFactory;
 
-    public function provider()
+    public function plan()
     {
-        return  $this->hasMany('App\Models\Provider');
+        return  $this->hasMany('App\Models\Plan');
     }
 }
