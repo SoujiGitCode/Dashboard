@@ -2,41 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
-use Exception;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+// use Exception;
 
 class WebController extends Controller
 {
     /**
      * Validate fields
      */
-    protected function valid($rule = '', $request, $id = '')
+    public function valid($rule = '', $request, $id = '')
     {
         $rules = $this->getRules($rule, $id);
 
-        $validator = Validator::make($request->all(), $rules);
+        return Validator::make($request->all(), $rules);
+    }
 
-        // if ($validator->fails()) {
-        //     throw new Exception($validator, 422);
-        // }
-
-        return $validator;
+    public function redirectFailure($route, $validator)
+    {
+        return redirect($route)
+        ->withErrors($validator)
+        ->withInput();
     }
 
     /**
      * Get Rules Validation
     */
-    protected function getRules($prefix, $id = '')
+    public function getRules($prefix, $id = '')
     {
         $rule = config('rules.' . $prefix);
 
+
         if($id) {
             foreach ($rule as $key => $r) {
-              if(strpos($rule[$key], 'unique')) {
-                $rule[$key] .=",".$id;
-              }
+                if(strpos($rule[$key], 'unique')) {
+                    $rule[$key] .=",".$id;
+                }
             }
         }
 
