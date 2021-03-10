@@ -32,49 +32,22 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Create New User</h4>
-                    <form method="POST" action="user-store">
-                        @csrf
-                        <div class="row mb-4">
-                            <label for="name" class="col-form-label col-lg-2">User Name</label>
-                            <div class="col-lg-10">
-                                <input id="name"
-                                    name="name"
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Enter User Name..." >
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <label for="email" class="col-form-label col-lg-2">User e-mail</label>
-                            <div class="col-lg-10">
-                                <input id="email"
-                                    name="email" type="text"
-                                    class="form-control  @error('email') is-invalid @enderror"
-                                    placeholder="Enter User E-mail..." >
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <label for="password" class="col-form-label col-lg-2">Password</label>
-                            <div class="col-lg-10">
-                                <input id="password" name="password" type="text" class="form-control"
-                                    placeholder="Enter User Password..." >
-                            </div>
-                        </div>
-
-                        <div class="row mb-4">
-                            <label for="projectbudget" class="col-form-label col-lg-2">Role</label>
-                            <div class="col-lg-10">
-                                <select class="form-select" name="role_id">
-                                    @foreach($roles as $role) <option value="{{$role->id}}" >{{$role->name}}</option> @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row justify-content-end">
-                            <div class="col-lg-10">
-                                <button type="submit" class="btn btn-primary">Create</button>
-                            </div>
-                        </div>
-                    </form>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="true">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="provider-tab" data-toggle="tab" href="#provider" role="tab" aria-controls="provider" aria-selected="false">Provider</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="false">Hotel</a>
+                    </li>
+                    </ul>
+                    <div class="tab-content mt-4" id="myTabContent">
+                    <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">@include('users.forms.admin-create')</div>
+                    <div class="tab-pane fade" id="provider" role="tabpanel" aria-labelledby="provider-tab">@include('users.forms.provider-create')</div>
+                    <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">@include('users.forms.hotels-create')</div>
+                    </div>
                 </div>
             </div>
         </div>

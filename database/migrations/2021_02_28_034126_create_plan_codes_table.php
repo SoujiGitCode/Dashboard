@@ -15,8 +15,11 @@ class CreatePlanCodesTable extends Migration
     {
         Schema::create('plan_codes', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
+            $table->string('name');
+            $table->integer('max_hotels')->nullable();
+            $table->integer('max_users')->nullable();
             $table->text('description');
+            $table->integer('code');
             $table->timestamps();
         });
     }

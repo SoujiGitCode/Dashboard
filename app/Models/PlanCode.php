@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class PlanCode extends Model
 {
     protected $fillable = [
+        'name',
+        'max_hotels',
+        'max_users',
         'code',
         'description'
     ];

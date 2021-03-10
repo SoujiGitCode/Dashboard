@@ -12,10 +12,10 @@ class Plan extends Model
      * @var array
      */
     protected $fillable = [
-        'prover_id',
+        'provider_id',
         'plan_code_id',
         'max_hotels',
-        'max_user',
+        'max_users',
         'description',
     ];
 
@@ -26,7 +26,6 @@ class Plan extends Model
 
     public function plan_code()
     {
-        return $this->belongsTo('App\Models\PlanCode');
-
+        return $this->hasOne('App\Models\PlanCode');
     }
 }
