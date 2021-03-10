@@ -11,19 +11,19 @@
 
 @section('content')
 
-    @component('components.breadcrumb')
-        @slot('li_1') Users @endslot
-        @slot('title') Users List
-        @endslot
+	@component('components.breadcrumb')
+		@slot('li_1')Distribuidores @endslot
+		@slot('title') Lista de Distribuidores
+		@endslot
 
-    @endcomponent
+	@endcomponent
 
     @php
         $cuser = Auth::user()->role->slug;
         $i = 1;
     @endphp
 
-    <br> <a type="button" class="btn btn-primary waves-effect waves-light" href="user-create">
+    <br> <a type="button" class="btn btn-primary waves-effect waves-light none" href="user-create">
         <i class="bx bx-user-plus font-size-16 align-middle me-2"></i> Crear
     </a> <br>
     <div class="row">
@@ -108,7 +108,7 @@
                 <a href="javascript:void(0);" class="text-success"><i
                         class="bx bx-loader bx-spin font-size-18 align-middle mr-2"></i> Load more </a>
             </div>
-            <br> <a type="button" class="btn btn-primary waves-effect waves-light" href="user-create">
+            <br> <a type="button" class="btn btn-primary waves-effect waves-light none" href="user-create">
                 <i class="bx bx-user-plus font-size-16 align-middle me-2"></i> Crear
             </a> <br>
         </div> <!-- end col-->

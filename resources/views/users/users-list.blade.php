@@ -9,11 +9,11 @@
 @section('content')
 
     @component('components.breadcrumb')
-		@slot('li_1')Distribuidores @endslot
-		@slot('title') Lista de Distribuidores
-		@endslot
+        @slot('li_1') Users @endslot
+        @slot('title') Users List
+        @endslot
 
-	@endcomponent
+    @endcomponent
 
     @php
         $cuser = Auth::user()->role->slug;
