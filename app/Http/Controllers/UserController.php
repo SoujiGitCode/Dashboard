@@ -31,16 +31,7 @@ class UserController extends WebController
     {
         try {
             $validator = $this->valid('user', $request);
-<<<<<<< HEAD
-
-            if ($validator->fails()) {
-                return redirect('user-create')
-                    ->withErrors($validator)
-                    ->withInput();
-            }
-=======
             if($validator->fails()) return $this->redirectFailure('user-create', $validator);
->>>>>>> f50d7bd5dcfaf46ece4f3a89942545d986c147be
 
             DB::beginTransaction();
 
@@ -75,16 +66,7 @@ class UserController extends WebController
     {
         try {
             $validator = $this->valid('user_update', $request, $request->id);
-<<<<<<< HEAD
-
-            if ($validator->fails()) {
-                return redirect('user-edit')
-                    ->withErrors($validator)
-                    ->withInput();
-            }
-=======
             if($validator->fails()) return $this->redirectFailure('user-edit', $validator);
->>>>>>> f50d7bd5dcfaf46ece4f3a89942545d986c147be
 
             DB::beginTransaction();
 

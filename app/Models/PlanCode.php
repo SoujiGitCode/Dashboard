@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PlanCode extends Model
@@ -12,10 +11,8 @@ class PlanCode extends Model
         'description'
     ];
 
-    use HasFactory;
-
-    public function plan()
+    public function plans()
     {
-        return  $this->hasMany('App\Models\Plan');
+        return $this->hasMany('App\Models\Plan');
     }
 }
