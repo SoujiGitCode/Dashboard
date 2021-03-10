@@ -18,10 +18,7 @@ class CreateProvidersTable extends Migration
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('hotels');
-            $table->string('alias');
-            $table->string('status');
-            $table->string('created_by');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

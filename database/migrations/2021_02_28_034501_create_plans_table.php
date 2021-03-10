@@ -19,7 +19,7 @@ class CreatePlansTable extends Migration
             $table->foreignId('provider_id')->constrained('providers')->onDelete('cascade');
             $table->string('max_hotels');
             $table->string('max_users');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
 

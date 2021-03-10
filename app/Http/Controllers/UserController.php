@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Provider;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\PlanCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
@@ -23,25 +24,32 @@ class UserController extends WebController
     public function create()
     {
         $roles = Role::where('slug', '<>', 'vip')->get();
+        $plans = PlanCode::all();
 
-        return view('users.user-create', compact('roles'));
+        return view('users.user-create', compact('roles', 'plans'));
     }
 
     public function store(Request $request)
-    {
+    {   
         try {
             $validator = $this->valid('user', $request);
             if($validator->fails()) return $this->redirectFailure('user-create', $validator);
-
+            
             DB::beginTransaction();
+            
+            $user = User::create_standard($request);
+            $plan = PlanCode::find($request->plan_id);
 
+            if($request->role_code == '77') {
+                $user->provider()->create();
+                $user->provider->plan()->create([
+                    'plan_code_id' => $plan->id,
+                    'max_hotels' => $plan->code == 44 ? $request->max_hotels : $plan->max_hotels,
+                    'max_users' => $plan->code == 44 ? $request->max_users : $plan->max_users,
+                    'description' => $request->description
+                ]);
+            }
 
-            User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'role_id' => $request->role_id
-            ]);
             DB::commit();
 
             $users = User::all();

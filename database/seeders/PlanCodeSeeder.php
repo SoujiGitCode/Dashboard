@@ -16,26 +16,38 @@ class PlanCodeSeeder extends Seeder
     {
         $data = [
             [
-                'code'=>'Basic',
+                'name'=>'Basic',
+                'max_hotels' => 5,
+                'max_users' => 5,
                 'description'=>'plan basico',
+                'code' => 11,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'code'=>'Standard',
+                'name'=>'Standard',
+                'max_hotels' => 10,
+                'max_users' => 10,
                 'description'=>'plan estandar',
+                'code' => 22,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'code'=>'Premium',
+                'name'=>'Premium',
+                'max_hotels' => 15,
+                'max_users' => 15,
                 'description'=>'plan premium',
+                'code' => 33,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'code'=>'Custom',
+                'name'=>'Custom',
+                'max_hotels' => null,
+                'max_users' => null,
                 'description'=>'plan personalizado',
+                'code' => 44,
                 'created_at' => now(),
                 'updated_at' => now()
             ]
