@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
@@ -19,16 +18,15 @@ class Plan extends Model
         'max_user',
         'description',
     ];
-    use HasFactory;
 
-    public function provider(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function provider()
     {
         return $this->belongsTo('App\Models\Provider');
     }
 
-    public function plancode()
+    public function plan_code()
     {
-        return $this->hasOne('App\Models\PlanCode', 'id');
+        return $this->belongsTo('App\Models\PlanCode');
 
     }
 }
