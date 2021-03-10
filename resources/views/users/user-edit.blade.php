@@ -17,6 +17,15 @@
         @slot('title') User edit @endslot
     @endcomponent
     <div class="row">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $message)
+                        <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
@@ -41,7 +50,7 @@
                                     name="email" type="text"
                                     class="form-control  @error('email') is-invalid @enderror"
                                     value="{{ old('email', $user->email) }}"
-                                    placeholder="{{$user->email}}" >
+                                    placeholder="{{$user->email}}" readonly>
                             </div>
                         </div>
                         <input type="hidden" value="{{$user->id}}" name="id">
@@ -54,22 +63,61 @@
                         </div> -->
 
                         <div class="row mb-4">
-                            <label for="projectbudget" class="col-form-label col-lg-2">Role</label>
+                            <label for="role" class="col-form-label col-lg-2">Role</label>
                             <div class="col-lg-10">
-                                <select class="form-select" name="role_id">
-                                    @foreach($roles as $role)
-                                        <option value="{{$role->id}}">
-                                            {{$role->name}}
-                                        </option>
-                                    @endforeach
+                                <input id="role"
+                                    name="role" type="text"
+                                    class="form-control  @error('email') is-invalid @enderror"
+                                    placeholder="{{$user->role->name}}" readonly>
+                            </div>
+                        </div>
+
+                        @if($user->role->code == 77)
+                        
+                        <div class="row mb-4">
+                            <label for="projectbudget" class="col-form-label col-lg-2">Planes</label>
+                            <div class="col-lg-10">
+                                <select class="form-select" name="plan_id">
+                                    @foreach($plans as $plan) <option value="{{$plan->id}}" >{{$plan->name}}</option> @endforeach
                                 </select>
                             </div>
                         </div>
+
+                        <div class="row mb-4">
+                            <label for="max_hotels" class="col-form-label col-lg-2">Cantidad max de hoteles</label>
+                            <div class="col-lg-10">
+                                <input id="max_hotels" name="max_hotels" type="number" class="form-control"
+                                    placeholder="{{$user->provider->plan->max_hotels}}" min=1>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="max_users" class="col-form-label col-lg-2">Cantidad max de usuarios</label>
+                            <div class="col-lg-10">
+                                <input id="max_users" name="max_users" type="number" class="form-control"
+                                    placeholder="{{$user->provider->plan->max_users}}" min=1>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label for="description" class="col-form-label col-lg-2">Descripcion</label>
+                            <div class="col-lg-10">
+                                <input id="description" name="description" type="textarea" class="form-control"
+                                    placeholder="{{$user->provider->plan->description}}" >
+                            </div>
+                        </div>
+
+                        @endif
+
+
+
                         <div class="row justify-content-end">
                             <div class="col-lg-10">
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>

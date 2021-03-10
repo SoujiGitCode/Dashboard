@@ -10,7 +10,6 @@ return [
     ],
     'user_update' => [
         'name' => 'required|string|max:40',
-        'email' => 'required|string|email|max:40'
     ],
     'status_update' => [
         'status' => 'required|string|max:255',
