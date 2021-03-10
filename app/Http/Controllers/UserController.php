@@ -66,8 +66,9 @@ class UserController extends WebController
     {
         $user = User::find($id);
         $roles = Role::where('slug', '<>', 'vip')->get();
+        $plans = PlanCode::all();
 
-        return view('users.user-edit', compact('user', 'roles'));
+        return view('users.user-edit', compact('user', 'roles', 'plans'));
     }
 
     public function update(Request $request)
@@ -79,12 +80,20 @@ class UserController extends WebController
             DB::beginTransaction();
 
             $user = User::find($request->id);
+            $plan = PlanCode::find($request->plan_id);
 
             $user->update([
                 'name' => $request->name,
-                'email' => $request->email,
-                'role_id' => $request->role_id
             ]);
+
+            if($user->role->code == 77) {
+                $user->provider->plan()->update([
+                    'plan_code_id' => $plan->id,
+                    'max_hotels' => $plan->code == 44 ? $request->max_hotels : $plan->max_hotels,
+                    'max_users' => $plan->code == 44 ? $request->max_users : $plan->max_users,
+                    'description' => $request->description
+                ]);
+            }
 
             DB::commit();
 
