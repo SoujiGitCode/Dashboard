@@ -27,11 +27,11 @@
                 $('#current_passwordError').text('');
                 $('#passwordError').text('');
                 $('#password_confirmError').text('');
-                if(response.isSuccess == false){ 
+                if(response.isSuccess == false){
                     $('#current_passwordError').text(response.Message);
                 }else if(response.isSuccess == true){
-                    setTimeout(function () {   
-                        window.location.href = "{{ route('root') }}"; 
+                    setTimeout(function () {
+                        window.location.href = "{{ route('root') }}";
                     }, 1000);
                 }
             },
@@ -48,5 +48,7 @@
 
 <!-- App js -->
 <script src="{{ URL::asset('assets/js/app.min.js')}}"></script>
+<!-- Custom Project js -->
+<script src="{{ URL::asset('assets/js/custom.js')}}"></script>
 
 @yield('script-bottom')

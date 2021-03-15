@@ -1,0 +1,12 @@
+/*action small buttons in users list*/
+.actions-sm {
+    min-width: 50px;
+}
+
+.none {
+    display: none;
+}
+
+.sudonone{
+    display: none !important;
+}

@@ -11,269 +11,46 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end">04</span>
-                        <span key="t-dashboards">@lang('translation.Dashboards')</span>
+                        <i class="bx bx-user-circle"></i><span class="badge rounded-pill bg-info float-end">02</span>
+                        <span key="t-dashboards">Usuarios</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="index" key="t-default">@lang('translation.Default')</a></li>
-                        <li><a href="dashboard-saas" key="t-saas">@lang('translation.Saas')</a></li>
-                        <li><a href="dashboard-crypto" key="t-crypto">@lang('translation.Crypto')</a></li>
-                        <li><a href="dashboard-blog" key="t-blog">@lang('translation.Blog')</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
-                        <span key="t-layouts">@lang('translation.Layouts')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"
-                                key="t-vertical">@lang('translation.Vertical')</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-light-sidebar"
-                                        key="t-light-sidebar">@lang('translation.Light_Sidebar')</a></li>
-                                <li><a href="layouts-compact-sidebar"
-                                        key="t-compact-sidebar">@lang('translation.Compact_Sidebar')</a></li>
-                                <li><a href="layouts-icon-sidebar"
-                                        key="t-icon-sidebar">@lang('translation.Icon_Sidebar')</a></li>
-                                <li><a href="layouts-boxed" key="t-boxed-width">@lang('translation.Boxed_Width')</a>
-                                </li>
-                                <li><a href="layouts-preloader" key="t-preloader">@lang('translation.Preloader')</a>
-                                </li>
-                                <li><a href="layouts-colored-sidebar"
-                                        key="t-colored-sidebar">@lang('translation.Colored_Sidebar')</a></li>
-                                <li><a href="layouts-scrollable" key="t-scrollable">@lang('translation.Scrollable')</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"
-                                key="t-horizontal">@lang('translation.Horizontal')</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="layouts-horizontal" key="t-horizontal">@lang('translation.Horizontal')</a>
-                                </li>
-                                <li><a href="layouts-hori-topbar-light"
-                                        key="t-topbar-light">@lang('translation.Topbar_Light')</a></li>
-                                <li><a href="layouts-hori-boxed-width"
-                                        key="t-boxed-width">@lang('translation.Boxed_Width')</a></li>
-                                <li><a href="layouts-hori-preloader"
-                                        key="t-preloader">@lang('translation.Preloader')</a></li>
-                                <li><a href="layouts-hori-colored-header"
-                                        key="t-colored-topbar">@lang('translation.Colored_Header')</a></li>
-                                <li><a href="layouts-hori-scrollable"
-                                        key="t-scrollable">@lang('translation.Scrollable')</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="menu-title" key="t-apps">@lang('translation.Apps')</li>
-
-                <li>
-                    <a href="calendar" class="waves-effect">
-                        <i class="bx bx-calendar"></i>
-                        <span key="t-calendar">@lang('translation.Calendar')</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="chat" class="waves-effect">
-                        <i class="bx bx-chat"></i>
-                        <span key="t-chat">@lang('translation.Chat')</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="apps-filemanager" class="waves-effect">
-                        <i class="bx bx-file"></i>
-                        <span class="badge rounded-pill bg-success float-end"
-                            key="t-new">@lang('translation.New')</span>
-                        <span key="t-file-manager">@lang('translation.File_Manager')</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-store"></i>
-                        <span key="t-ecommerce">@lang('translation.Ecommerce')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="ecommerce-products" key="t-products">@lang('translation.Products')</a></li>
-                        <li><a href="ecommerce-product-detail"
-                                key="t-product-detail">@lang('translation.Product_Detail')</a></li>
-                        <li><a href="ecommerce-orders" key="t-orders">@lang('translation.Orders')</a></li>
-                        <li><a href="ecommerce-customers" key="t-customers">@lang('translation.Customers')</a></li>
-                        <li><a href="ecommerce-cart" key="t-cart">@lang('translation.Cart')</a></li>
-                        <li><a href="ecommerce-checkout" key="t-checkout">@lang('translation.Checkout')</a></li>
-                        <li><a href="ecommerce-shops" key="t-shops">@lang('translation.Shops')</a></li>
-                        <li><a href="ecommerce-add-product" key="t-add-product">@lang('translation.Add_Product')</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-bitcoin"></i>
-                        <span key="t-crypto">@lang('translation.Crypto')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="crypto-wallet" key="t-wallet">@lang('translation.Wallet')</a></li>
-                        <li><a href="crypto-buy-sell" key="t-buy">@lang('translation.Buy_Sell')</a></li>
-                        <li><a href="crypto-exchange" key="t-exchange">@lang('translation.Exchange')</a></li>
-                        <li><a href="crypto-lending" key="t-lending">@lang('translation.Lending')</a></li>
-                        <li><a href="crypto-orders" key="t-orders">@lang('translation.Orders')</a></li>
-                        <li><a href="crypto-kyc-application" key="t-kyc">@lang('translation.KYC_Application')</a></li>
-                        <li><a href="crypto-ico-landing" key="t-ico">@lang('translation.ICO_Landing')</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-envelope"></i>
-                        <span key="t-email">@lang('translation.Email')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox" key="t-inbox">@lang('translation.Inbox')</a></li>
-                        <li><a href="email-read" key="t-read-email">@lang('translation.Read_Email')</a></li>
-                        <li>
-                            <a href="javascript: void(0);">
-                                <span class="badge rounded-pill badge-soft-success float-end"
-                                    key="t-new">@lang('translation.New')</span>
-                                <span key="t-email-templates">@lang('translation.Templates')</span>
-                            </a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="email-template-basic"
-                                        key="t-basic-action">@lang('translation.Basic_Action')</a></li>
-                                <li><a href="email-template-alert"
-                                        key="t-alert-email">@lang('translation.Alert_Email')</a></li>
-                                <li><a href="email-template-billing"
-                                        key="t-bill-email">@lang('translation.Billing_Email')</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-receipt"></i>
-                        <span key="t-invoices">@lang('translation.Invoices')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="invoices-list" key="t-invoice-list">@lang('translation.Invoice_List')</a></li>
-                        <li><a href="invoices-detail" key="t-invoice-detail">@lang('translation.Invoice_Detail')</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-briefcase-alt-2"></i>
-                        <span key="t-projects">@lang('translation.Projects')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="projects-grid" key="t-p-grid">@lang('translation.Projects_Grid')</a></li>
-                        <li><a href="projects-list" key="t-p-list">@lang('translation.Projects_List')</a></li>
-                        <li><a href="projects-overview" key="t-p-overview">@lang('translation.Project_Overview')</a>
-                        </li>
-                        <li><a href="projects-create" key="t-create-new">@lang('translation.Create_New')</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-task"></i>
-                        <span key="t-tasks">@lang('translation.Tasks')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="tasks-list" key="t-task-list">@lang('translation.Task_List')</a></li>
-                        <li><a href="tasks-kanban" key="t-kanban-board">@lang('translation.Kanban_Board')</a></li>
-                        <li><a href="tasks-create" key="t-create-task">@lang('translation.Create_Task')</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bxs-user-detail"></i>
-                        <span key="t-contacts">@lang('translation.Contacts')</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="contacts-grid" key="t-user-grid">@lang('translation.User_Grid')</a></li>
-                        <li><a href="contacts-list" key="t-user-list">@lang('translation.User_List')</a></li>
-                        <li><a href="contacts-profile" key="t-profile">@lang('translation.Profile')</a></li>
+                        <li><a href="roles-list" key="t-default">Lista de Roles</a></li>
+                        <li><a href="users-list" key="t-saas">Lista de Usuarios</a></li>
                     </ul>
                 </li>
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <span class="badge rounded-pill bg-success float-end"
-                            key="t-new">@lang('translation.New')</span>
-                        <i class="bx bx-detail"></i>
-                        <span key="t-blog">@lang('translation.Blog')</span>
+                        <i class="bx bx-spreadsheet"></i><span class="badge rounded-pill bg-info float-end">01</span>
+                        <span key="t-dashboards">Planes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="blog-list" key="t-blog-list">@lang('translation.Blog_List')</a></li>
-                        <li><a href="blog-grid" key="t-blog-grid">@lang('translation.Blog_Grid')</a></li>
-                        <li><a href="blog-details" key="t-blog-details">@lang('translation.Blog_Details')</a></li>
+                        <li><a href="plans-list" key="t-default">Lista de Planes</a></li>
                     </ul>
                 </li>
-
-                <li class="menu-title" key="t-pages">@lang('translation.Pages')</li>
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <span class="badge rounded-pill bg-success float-end"
-                            key="t-new">@lang('translation.New')</span>
-                        <i class="bx bx-user-circle"></i>
-                        <span key="t-authentication">@lang('translation.Authentication')</span>
+                        <i class="bx bx-street-view"></i><span class="badge rounded-pill bg-info float-end">03</span>
+                        <span key="t-dashboards">Proveedores</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-login" key="t-login">@lang('translation.Login')</a></li>
-                        <li><a href="auth-login-2" key="t-login-2">@lang('translation.Login') 2</a></li>
-                        <li><a href="auth-register" key="t-register">@lang('translation.Register')</a></li>
-                        <li><a href="auth-register-2" key="t-register-2">@lang('translation.Register') 2</a></li>
-                        <li><a href="auth-recoverpw" key="t-recover-password">@lang('translation.Recover_Password')</a>
-                        </li>
-                        <li><a href="auth-recoverpw-2" key="t-recover-password-2">@lang('translation.Recover_Password')
-                                2</a></li>
-                        <li><a href="auth-lock-screen" key="t-lock-screen">@lang('translation.Lock_Screen')</a></li>
-                        <li><a href="auth-lock-screen-2" key="t-lock-screen-2">@lang('translation.Lock_Screen') 2</a>
-                        </li>
-                        <li><a href="auth-confirm-mail" key="t-confirm-mail">@lang('translation.Confirm_Mail')</a></li>
-                        <li><a href="auth-confirm-mail-2" key="t-confirm-mail-2">@lang('translation.Confirm_Mail') 2</a>
-                        </li>
-                        <li><a href="auth-email-verification"
-                                key="t-email-verification">@lang('translation.Email_verification')</a></li>
-                        <li><a href="auth-email-verification-2"
-                                key="t-email-verification-2">@lang('translation.Email_verification') 2</a></li>
-                        <li><a href="auth-two-step-verification"
-                                key="t-two-step-verification">@lang('translation.Two_step_verification')</a></li>
-                        <li><a href="auth-two-step-verification-2"
-                                key="t-two-step-verification-2">@lang('translation.Two_step_verification') 2</a></li>
+                        <li><a href="distributors-list" key="t-default">Distribuidores</a></li>
+                        <li><a href="managers-list" key="t-saas">Managers</a></li>
+                        <li><a href="agents-list" key="t-saas">Agentes</a></li>
                     </ul>
                 </li>
+
 
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-file"></i>
-                        <span key="t-utility">@lang('translation.Utility')</span>
+                    <a href="#" class="waves-effect">
+                        <i class="bx bx-building-house"></i>
+                        <span key="t-chat">Hoteles</span>
                     </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="pages-starter" key="t-starter-page">@lang('translation.Starter_Page')</a></li>
-                        <li><a href="pages-maintenance" key="t-maintenance">@lang('translation.Maintenance')</a></li>
-                        <li><a href="pages-comingsoon" key="t-coming-soon">@lang('translation.Coming_Soon')</a></li>
-                        <li><a href="pages-timeline" key="t-timeline">@lang('translation.Timeline')</a></li>
-                        <li><a href="pages-faqs" key="t-faqs">@lang('translation.FAQs')</a></li>
-                        <li><a href="pages-pricing" key="t-pricing">@lang('translation.Pricing')</a></li>
-                        <li><a href="pages-404" key="t-error-404">@lang('translation.Error_404')</a></li>
-                        <li><a href="pages-500" key="t-error-500">@lang('translation.Error_500')</a></li>
-                    </ul>
                 </li>
 
-                <li class="menu-title" key="t-components">@lang('translation.Components')</li>
-
+            <!--
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-tone"></i>
@@ -402,7 +179,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
             </ul>
         </div>
