@@ -45,11 +45,11 @@ class RolesSeeder extends Seeder
             ],
 
             [
-                'name'=>'hotel',
-                'slug'=>'hotel',
-                'description'=>'hotel role',
-                'code'=>'55',
-                'created_at' => now()
+        'name'=>'agent',
+        'slug'=>'agent',
+        'description'=>'agent role',
+        'code'=>'55',
+        'created_at' => now()
             ]
         ];
 

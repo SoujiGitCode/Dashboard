@@ -22,24 +22,35 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-street-view"></i><span class="badge rounded-pill bg-info float-end">02</span>
+                        <i class="bx bx-spreadsheet"></i><span class="badge rounded-pill bg-info float-end">01</span>
+                        <span key="t-dashboards">Planes</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="plans-list" key="t-default">Lista de Planes</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect">
+                        <i class="bx bx-street-view"></i><span class="badge rounded-pill bg-info float-end">03</span>
                         <span key="t-dashboards">Proveedores</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="distributors-list" key="t-default">Distribuidores</a></li>
-                        <li><a href="#" key="t-saas">Managers</a></li>
+                        <li><a href="managers-list" key="t-saas">Managers</a></li>
+                        <li><a href="agents-list" key="t-saas">Agentes</a></li>
                     </ul>
                 </li>
 
 
                 <li>
-                    <a href="index" class="waves-effect">
+                    <a href="#" class="waves-effect">
                         <i class="bx bx-building-house"></i>
                         <span key="t-chat">Hoteles</span>
                     </a>
                 </li>
 
-<!--
+            <!--
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-tone"></i>

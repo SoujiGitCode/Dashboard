@@ -39,14 +39,16 @@
                     <li class="nav-item">
                         <a class="nav-link" id="provider-tab" data-toggle="tab" href="#provider" role="tab" aria-controls="provider" aria-selected="false">Provider</a>
                     </li>
-                    <li class="nav-item">
+                   <!-- <li class="nav-item">
                         <a class="nav-link" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="false">Hotel</a>
                     </li>
+                    -->
                     </ul>
                     <div class="tab-content mt-4" id="myTabContent">
                     <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">@include('users.forms.admin-create')</div>
                     <div class="tab-pane fade" id="provider" role="tabpanel" aria-labelledby="provider-tab">@include('users.forms.provider-create')</div>
-                    <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">@include('users.forms.hotels-create')</div>
+                    <!--<div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">@include('users.forms.hotels-create')</div>
+                    -->
                     </div>
                 </div>
             </div>
@@ -60,4 +62,6 @@
     <script src="{{ URL::asset('/assets/libs/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <!-- dropzone plugin -->
     <script src="{{ URL::asset('/assets/libs/dropzone/dropzone.min.js') }}"></script>
+    <!-- custom view js-->
+    <script src="{{ URL::asset('/assets/js/providers-views.js') }}"></script>
 @endsection

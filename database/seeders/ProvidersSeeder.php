@@ -18,20 +18,48 @@ class ProvidersSeeder extends Seeder
         $data = [
             [
                 'user_id'=>'5',
-                // 'hotels'=>'01, 02',
-                // 'alias'=>'alias-reinaldo',
-                // 'status'=>'1',
-                // 'created_by'=>'vip',
                 'created_at' => now()
             ],
             [
                 'user_id'=>'6',
-                // 'hotels'=>'03, 04, 05',
-                // 'alias'=>'alias-569',
-                // 'status'=>'0',
-                // 'created_by'=>'vip',
                 'created_at' => now()
             ],
+            [
+                'user_id'=>'7',
+                'created_at' => now()
+            ],
+
+
+            [
+                'user_id'=>'8',
+                'created_at' => now()
+            ],
+            [
+                'user_id'=>'9',
+                'created_at' => now()
+            ],
+            [
+                'user_id'=>'10',
+                'created_at' => now()
+            ],
+
+            [
+                'user_id'=>'11',
+                'created_at' => now()
+            ],
+            [
+                'user_id'=>'12',
+                'created_at' => now()
+            ],
+            [
+                'user_id'=>'13',
+                'created_at' => now()
+            ],
+
+
+
+
+
 
         ];
 

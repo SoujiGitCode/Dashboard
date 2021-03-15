@@ -1,17 +1,12 @@
-<?php
 @extends('layouts.master')
-<style>
-    .actions-sm {
-        min-width: 50px;
-    }
-</style>
+
 @section('title') @lang('translation.Projects_List') @endsection
 
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1') Users @endslot
-        @slot('title') Users List
+        @slot('li_1')Managers @endslot
+        @slot('title') Lista de Managers
         @endslot
 
     @endcomponent
@@ -21,7 +16,7 @@
         $i = 1;
     @endphp
 
-    <br> <a type="button" class="btn btn-primary waves-effect waves-light" href="user-create">
+    <br> <a type="button" class="btn btn-primary waves-effect waves-light none" href="user-create">
         <i class="bx bx-user-plus font-size-16 align-middle me-2"></i> Crear
     </a> <br>
     <div class="row">
@@ -32,67 +27,66 @@
                         <thead>
                         <tr>
                             <th scope="col" style="width: 100px">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">E-mail</th>
-                            <!-- <th scope="col">Profile</th> -->
-                            <th scope="col">Created_at</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Hoteles</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Max Hoteles</th>
+                            <th scope="col">Max Usuarios</th>
+                            <th scope="col">Plan</th>
+                            <th scope="col">Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($users as $user)
+                        @foreach($distributors as $distributor)
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>
-                                    <h5 class="text-truncate font-size-14">{{$user->name}}</h5>
+                                    <h5 class="text-truncate font-size-14">{{$distributor->name}}</h5>
                                 </td>
-                                <td>{{$user->email}}</td>
-                            <!-- <td>
-                                    <img src="{{ URL::asset($user->avatar) }}" alt=""class="avatar-sm"></span>
-                                </td> -->
-                                <td>{{$user->created_at}}</td>
-                                <td>
-                                    @if($cuser == 'vip' && $user->role->slug != 'vip')
+                                <td>-</td>
+                                <!-- status column -->
+                                <td>{{$distributor->status}}</td>
 
-                                        <form action="user-delete-{{$user->id}}" method="POST">
+                                <!-- Max-Hotels column -->
+                                <td>{{$distributor->max_hotels}}</td>
+                                <!-- Max-Hotels column -->
+                                <td>{{$distributor->max_users}}</td>
+                                <!-- Plan column -->
+                                <td>{{ $distributor->planDescription }}</td>
+
+                                <td>
+                                    @if($cuser == 'vip')
+                                        <form action="managers-status-update" method="POST">
                                             @csrf
-                                            <a type="button" class="btn btn-success waves-effect waves-light actions-sm" href="user-edit-{{$user->id}}">
-                                                <i class="mdi mdi-pencil d-block font-size-16"></i>
+                                            <input type="hidden" name="status" value="{{$distributor->status}}">
+                                            <input type="hidden" name="id" value="{{$distributor->id}}">
+
+                                            <a type="button" class="btn btn-success waves-effect waves-light actions-sm none"
+                                               href="provider-edit-{{$distributor->id}}">
+                                                <i class="bx bx-pencil d-block font-size-16"></i>
                                             </a>
 
-
-                                            <button type="submit" class="btn btn-danger waves-effect waves-light actions-sm">
-                                                <i class="mdi mdi-trash-can d-block font-size-16"></i>
-                                            </button>
-                                        <!--   <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown"
-                                            aria-expanded="false">
-                                            <i class="mdi mdi-dots-horizontal font-size-18"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-
-                                                <a class="dropdown-item" href="user-create">Create</a>
-                                                <a class="dropdown-item" href="user-edit-{{$user->id}}">Edit</a>
-                                                <form action="user-delete-{{$user->id}}" method="POST">
-                                                    @csrf
-                                            <button type="submit" class="dropdown-item">
-                                            Delete -->
-                                            <!-- <a class="dropdown-item">Delete</a> -->
-                                            <!--    </button> -->
+                                            @if($distributor->status== 1)
+                                                <button type="submit"
+                                                        class="btn btn-danger waves-effect waves-light actions-sm">
+                                                    <i class="bx bx-power-off d-block font-size-16"></i>
+                                                </button>
+                                            @else
+                                                <button type="submit"
+                                                        class="btn btn-primary waves-effect waves-light actions-sm">
+                                                    <i class="bx bx-power-off d-block font-size-16"></i>
+                                                </button>
+                                            @endif
                                         </form>
-                    @else
-
-                    @endif
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            </td>
-            </tr>
-            @endforeach
-            </tbody>
-            </table>
         </div>
-    </div>
-    </div>
     </div>
     <!-- end row -->
 
@@ -102,7 +96,7 @@
                 <a href="javascript:void(0);" class="text-success"><i
                         class="bx bx-loader bx-spin font-size-18 align-middle mr-2"></i> Load more </a>
             </div>
-            <br> <a type="button" class="btn btn-primary waves-effect waves-light" href="user-create">
+            <br> <a type="button" class="btn btn-primary waves-effect waves-light none" href="user-create">
                 <i class="bx bx-user-plus font-size-16 align-middle me-2"></i> Crear
             </a> <br>
         </div> <!-- end col-->

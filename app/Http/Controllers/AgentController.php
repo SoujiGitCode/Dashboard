@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ProviderController extends WebController
+class AgentController extends WebController
 {
     public function index()
     {
@@ -19,11 +19,11 @@ class ProviderController extends WebController
             ->join ('plan_codes', 'plans.plan_code_id',  'plan_codes.id')
             ->select('users.name', 'providers.id', 'providers.status' ,'plans.max_hotels', 'plans.max_users',
                 'plan_codes.description AS planDescription' )
-            ->where('users.role_id', '=', '3')
+            ->where('users.role_id', '5')
             ->get();
-       // dd($distributors);
+        //dd($distributors);
 
-        return view('providers.distributors-list', compact('distributors'));
+        return view('providers.agents-list', compact('distributors'));
     }
 
     public function edit($id)
@@ -42,7 +42,7 @@ class ProviderController extends WebController
             $validator = $this->valid('status_update', $request, $request->id);
 
             if ($validator->fails()) {
-                return redirect('distributors-list')
+                return redirect('managers-list')
                     ->withErrors($validator)
                     ->withInput();
             }
@@ -68,9 +68,11 @@ class ProviderController extends WebController
                 ->join ('plan_codes', 'plans.plan_code_id',  'plan_codes.id')
                 ->select('users.name', 'providers.id', 'providers.status' ,'plans.max_hotels', 'plans.max_users',
                     'plan_codes.description AS planDescription' )
+                ->where('users.role_id', '5')
                 ->get();
 
-            return view('providers.distributors-list', compact('distributors'));
+
+            return view('providers.agents-list', compact('distributors'));
 
         } catch (\Throwable $th) {
             DB::rollback();
@@ -113,11 +115,10 @@ class ProviderController extends WebController
                 ->join ('plan_codes', 'plans.plan_code_id',  'plan_codes.id')
                 ->select('users.name', 'providers.id', 'providers.status' ,'plans.max_hotels', 'plans.max_users',
                     'plan_codes.description AS planDescription' )
+                ->where('users.role_id', '5')
                 ->get();
 
-
-
-            return view('providers.distributors-list', compact('distributors'));
+            return view('providers.agents-list', compact('distributors'));
 
         } catch (\Throwable $th) {
             DB::rollback();

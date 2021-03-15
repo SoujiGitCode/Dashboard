@@ -1,9 +1,5 @@
 @extends('layouts.master')
-<style>
-    .actions-sm {
-        min-width: 50px;
-    }
-</style>
+
 @section('title') @lang('translation.Projects_List') @endsection
 
 @section('content')

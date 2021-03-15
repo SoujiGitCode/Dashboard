@@ -14,8 +14,8 @@ class PlanCode extends Model
         'description'
     ];
 
-    public function plans()
+    public function plan()
     {
-        return $this->hasMany('App\Models\Plan');
+        return $this->belongsTo('App\Models\Plan', 'plan_code_id', 'id');
     }
 }

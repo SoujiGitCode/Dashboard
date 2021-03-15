@@ -45,14 +45,41 @@ Route::post('/user-delete-{id}', 'UserController@destroy')->middleware('role:vip
 
 /*
 |--------------------------------------------------------------------------
-| Providers Routes
+| Vip Section- Distributors Routes
 |--------------------------------------------------------------------------
 */
 Route::get('/distributors-list', 'ProviderController@index')->middleware('role:vip,admin');
-Route::get('/managers-list', 'ProviderController@index')->middleware('role:vip,admin');
 Route::post('/distributors-status-update', 'ProviderController@update')->middleware('role:vip');
 Route::get('/provider-edit-{id}', 'ProviderController@edit')->middleware('role:vip');
 Route::post('/provider-update', 'ProviderController@updateprovider')->middleware('role:vip');
+
+/*
+|--------------------------------------------------------------------------
+| Vip Section- Managers Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/managers-list', 'ManagerController@index')->middleware('role:vip,admin');
+Route::post('/managers-status-update', 'ManagerController@update')->middleware('role:vip');
+Route::get('/managers-edit-{id}', 'ManagerController@edit')->middleware('role:vip');
+Route::post('/manager-update', 'ManagerController@updateprovider')->middleware('role:vip');
+
+/*
+|--------------------------------------------------------------------------
+| Vip Section- Agents Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/agents-list', 'AgentController@index')->middleware('role:vip,admin');
+Route::post('/agents-status-update', 'AgentController@update')->middleware('role:vip');
+Route::get('/agent-edit-{id}', 'AgentController@edit')->middleware('role:vip');
+Route::post('/agent-update', 'AgentController@updateprovider')->middleware('role:vip');
+
+/*
+|--------------------------------------------------------------------------
+| Vip Section- Plans Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('/plans-list', 'PlanController@index')->middleware('role:vip,admin');
+Route::post('/plan-update', 'PlanController@update')->middleware('role:vip');
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 

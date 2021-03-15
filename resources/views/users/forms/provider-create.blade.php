@@ -29,13 +29,13 @@
     <div class="row mb-4">
         <label for="projectbudget" class="col-form-label col-lg-2">Planes</label>
         <div class="col-lg-10">
-            <select class="form-select" name="plan_id">
+            <select class="form-select" name="plan_id" id="plan_id">
                 @foreach($plans as $plan) <option value="{{$plan->id}}" >{{$plan->name}}</option> @endforeach
             </select>
         </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="row mb-4" id="max_hotels_container" style="display:none;">
         <label for="max_hotels" class="col-form-label col-lg-2">Cantidad max de hoteles</label>
         <div class="col-lg-10">
             <input id="max_hotels" name="max_hotels" type="number" class="form-control"
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="row mb-4" id="max_users_container" style="display:none;">
         <label for="max_users" class="col-form-label col-lg-2">Cantidad max de usuarios</label>
         <div class="col-lg-10">
             <input id="max_users" name="max_users" type="number" class="form-control"
@@ -67,3 +67,6 @@
         </div>
     </div>
 </form>
+
+
+

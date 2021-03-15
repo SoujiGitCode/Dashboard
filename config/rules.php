@@ -19,5 +19,8 @@ return [
         'status' => 'required|string|max:255',
         'id' => 'required|string|max:255'
     ],
+    'plan_update' => [
+        'id' => 'required|string|max:255'
+    ],
 
 ];

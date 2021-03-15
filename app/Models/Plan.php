@@ -24,8 +24,8 @@ class Plan extends Model
         return $this->belongsTo('App\Models\Provider');
     }
 
-    public function plan_code()
+    public function plancode()
     {
-        return $this->hasOne('App\Models\PlanCode');
+        return $this->hasOne('App\Models\PlanCode','id','plan_code_id');
     }
 }

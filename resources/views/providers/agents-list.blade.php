@@ -5,8 +5,8 @@
 @section('content')
 
     @component('components.breadcrumb')
-        @slot('li_1')Distribuidores @endslot
-        @slot('title') Lista de Distribuidores
+        @slot('li_1')Agentes @endslot
+        @slot('title') Lista de Agentes
         @endslot
 
     @endcomponent
@@ -52,16 +52,16 @@
                                 <!-- Max-Hotels column -->
                                 <td>{{$distributor->max_users}}</td>
                                 <!-- Plan column -->
-                                <td>{{ $distributor->planDescription}}</td>
+                                <td>{{ $distributor->planDescription }}</td>
 
                                 <td>
                                     @if($cuser == 'vip')
-                                        <form action="distributors-status-update" method="POST">
+                                        <form action="managers-status-update" method="POST">
                                             @csrf
                                             <input type="hidden" name="status" value="{{$distributor->status}}">
                                             <input type="hidden" name="id" value="{{$distributor->id}}">
 
-                                            <a type="button" class="btn btn-success waves-effect waves-light actions-sm"
+                                            <a type="button" class="btn btn-success waves-effect waves-light actions-sm none"
                                                href="provider-edit-{{$distributor->id}}">
                                                 <i class="bx bx-pencil d-block font-size-16"></i>
                                             </a>

@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
             [
                 'name' => Str::random(10),
                 'role_id' => 4,
-                'email' => 'hotel@gmail.com',
+                'email' => 'manager@gmail.com',
                 'password' => Hash::make('password'),
                 'avatar' => '/assets/images/users/avatar-4.jpg',
                 'created_at' => now()
@@ -63,6 +63,62 @@ class UserSeeder extends Seeder
                 'name' => Str::random(10),
                 'role_id' => 3,
                 'email' => 'dist3@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
+            [
+                'name' => Str::random(10),
+                'role_id' => 3,
+                'email' => 'dist4@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
+            [
+                'name' => Str::random(10),
+                'role_id' => 4,
+                'email' => 'manager1@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
+            [
+                'name' => Str::random(10),
+                'role_id' => 4,
+                'email' => 'manager2@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
+            [
+                'name' => Str::random(10),
+                'role_id' => 4,
+                'email' => 'manager3@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
+            [
+                'name' => Str::random(10),
+                'role_id' => 5,
+                'email' => 'agent1@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
+            [
+                'name' => Str::random(10),
+                'role_id' => 5,
+                'email' => 'agent2@gmail.com',
+                'password' => Hash::make('password'),
+                'avatar' => '/assets/images/users/avatar-4.jpg',
+                'created_at' => now()
+            ],
+            [
+                'name' => Str::random(10),
+                'role_id' => 5,
+                'email' => 'agent3@gmail.com',
                 'password' => Hash::make('password'),
                 'avatar' => '/assets/images/users/avatar-4.jpg',
                 'created_at' => now()
